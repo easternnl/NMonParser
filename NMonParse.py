@@ -49,23 +49,23 @@ for filename in glob.glob(args.filename):
 
     
     # # process each CPU individually
-    # for cpu in list(filter(lambda ak: 'CPU' in ak, x.showSections())):
-    #     x.importSectionValues(measurement='cpu', tag='cpu=%s' % (cpu.lower()), section=cpu)
+    for cpu in list(filter(lambda ak: 'CPU' in ak, x.showSections())):
+        x.importSectionValues(measurement='cpu', tag='cpu=%s' % (cpu.lower()), section=cpu)
         
-    # x.importSectionValues(measurement='mem', tag='', section='MEM')
-    # x.importSectionValues(measurement='proc', tag='', section='PROC')
-    # x.importSectionValues(measurement='vm', tag='', section='VM')
+    x.importSectionValues(measurement='mem', tag='', section='MEM')
+    x.importSectionValues(measurement='proc', tag='', section='PROC')
+    x.importSectionValues(measurement='vm', tag='', section='VM')
     # # x.importSection(measurement='jfs', tag='', section='JFSFILE')
     
-    # x.importSectionTagValues(measurement='disk', tag='disk', section='DISKBUSY', valuename='disk_%busy')
-    # x.importSectionTagValues(measurement='disk', tag='disk', section='DISKREAD', valuename='diskread_kb/s')
-    # x.importSectionTagValues(measurement='disk', tag='disk', section='DISKWRITE', valuename='diskwrite_kb/s')
-    # x.importSectionTagValues(measurement='disk', tag='disk', section='DISKXFER', valuename='diskxfer')
-    # x.importSectionTagValues(measurement='disk', tag='disk', section='DISKBSIZE', valuename='diskbsize')
+    x.importSectionTagValues(measurement='disk', tag='disk', section='DISKBUSY', valuename='disk_%busy')
+    x.importSectionTagValues(measurement='disk', tag='disk', section='DISKREAD', valuename='diskread_kb/s')
+    x.importSectionTagValues(measurement='disk', tag='disk', section='DISKWRITE', valuename='diskwrite_kb/s')
+    x.importSectionTagValues(measurement='disk', tag='disk', section='DISKXFER', valuename='diskxfer')
+    x.importSectionTagValues(measurement='disk', tag='disk', section='DISKBSIZE', valuename='diskbsize')
 
-    # x.importSectionTagSplitValues(measurement='net', section='NET', splitvalue=-2)
+    x.importSectionTagSplitValues(measurement='net', section='NET', splitvalue=-2)
     
-    # x.importSectionTagSplitValues(measurement='netpacket', section='NETPACKET', splitvalue=-1)
+    x.importSectionTagSplitValues(measurement='netpacket', section='NETPACKET', splitvalue=-1)
     x.importTop(measurement='top', section='TOP')
 
     print(x.showSections())
